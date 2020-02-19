@@ -4,7 +4,7 @@ const initialState = {
 articles: [],
 error: null,
 isFetching: false
-};
+};//this closes initialState
 
 function reducer (state = initialState, action){
   console.log("reducer", action);
@@ -31,6 +31,6 @@ function reducer (state = initialState, action){
         }; //this closes ANIME_FAIL return
         default:
           return state;
-  }
+  }//this closes switch
 } //this closes reducer
 export default reducer;

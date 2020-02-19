@@ -6,8 +6,11 @@ const AnimeContent = ({title, intro, image}) => {
       <p className="article">{title}</p>
       <img src={image} alt=""/>
       <p className="article">{intro}</p>
+      <br/>
+      <hr/>
+      <br/>
     </div>
-  )
-}
+  ) //this closes return
+} //this closes AnimeContent
 
 export default AnimeContent;

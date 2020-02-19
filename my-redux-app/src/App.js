@@ -8,9 +8,11 @@ function App() {
       <div className="title">
       <h1>Anime News</h1>
       </div>
+      <div className="CardHolder">
       <AnimeList/>
+      </div> 
     </div>
   );
-}
+}//this closes App function
 
 export default App;
