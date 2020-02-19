@@ -1,30 +1,41 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {fetchAnime} from "../actions/index";
 import { connect } from "react-redux";
+import AnimeContent from "./AnimeCardContent";
 
-function AnimeList(props) {
-  console.log("AnimeList", props);
-  return(
-    <>
-    <button onClick={() => props.fetchAnime()}>See List</button>
-    {props.isFetching && <div>List is Loading...</div>}
-    <ul>
-      {props.articles.map(anime => (
-        <li key={anime.title}>
-        {anime.title}
-        {anime.intro}
-        </li>
-      ))}
-    </ul>
-    </>
-  ); //this closes AnimeList return
-} //this closes AnimeList
+const AnimeNews = props => {
 
-const mapDispatchToprops = {
-  fetchAnime
-}; //this closes mapDispatchToProps
+  useEffect(() => {
+      props.fetchAnime();
+  }, [])
 
-export default connect (
-  state => state,
-  mapDispatchToprops
-)(AnimeList);
+  if (props.isFetching) {
+      return <h2>Loading AnimeNews...</h2>
+  }
+
+  if (props.isFetching) {
+    return <h2>Loading Anime...</h2>
+  }
+  return (
+    <div>
+    {props.error && <p>{props.error}</p>}
+    {props.articles.map(item =>
+      <AnimeContent key={item.id} title= {item.title} image = {item.image_url} intro ={item.intro} />
+      )}
+
+
+  </div>
+
+  )
+} //this closes AnimeNews
+ 
+
+const mapStateToProps = state => {
+  return {
+      articles: state.articles,
+      isFetching: state.isFetching,
+      error: state.error
+  }
+}
+
+export default connect(mapStateToProps, { fetchAnime })(AnimeNews);
