@@ -1,3 +1,5 @@
+import axios from "axios";
+
 export const ANIME_LOADING = "ANIME_LOADING";
 export const ANIME_SUCCESS = "ANIME_SUCCESS";
 export const ANIME_FAIL = "ANIME_FAIL";
@@ -16,15 +18,11 @@ export const animeLoadFailure = error => ({
   payload: error
 }); //this closes animeLoadFailure
 
-export function fetchAnime(){
-  return function (dispatch){
-    dispatch(animeLoading());
+export const fetchAnime = () => dispatch => {
+dispatch({type: ANIME_LOADING})
 
-    return fetch(`https://api.jikan.moe/v3/anime/1/news`)
-    .then(response => response.json())
-    .then(json =>
-      dispatch(animeLoadFailure(json.articles))
-      ) //this closes 2nd.then
-      .catch(error => dispatch(animeLoadFailure(error)));
-  } //this closes dispatch return
-} //this closes fetchAnime
+axios
+.get("https://api.jikan.moe/v3/anime/1/news")
+.then(response => dispatch({type: ANIME_SUCCESS, payload: response.data.articles})
+.catch(error => dispatch({ type: ANIME_FAIL, payload: error.response})))
+} //this closes fetchAnime/axios
