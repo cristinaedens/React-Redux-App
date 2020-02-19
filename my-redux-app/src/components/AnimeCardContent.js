@@ -3,11 +3,14 @@ import React from "react";
 const AnimeContent = ({title, intro, image}) => {
   return(
     <div>
-      <p className="article">{title}</p>
+      {/* <hr/> */}
+      <br/>
+      <br/>
+      <h3 className="article">{title}</h3>
       <img src={image} alt=""/>
       <p className="article">{intro}</p>
       <br/>
-      <hr/>
+      {/* <hr/> */}
       <br/>
     </div>
   ) //this closes return

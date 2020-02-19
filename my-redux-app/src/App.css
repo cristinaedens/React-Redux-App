@@ -5,32 +5,43 @@
 
 .title {
     background-color: #003F3B;
-    color: black;
 }
 
 .CardHolder {
     background: #3a1526;
-    width: 50%;
+    width: 75%;
     margin-top: 4%;
     padding-top: 1.5%;
     padding-bottom: 2%;
     box-shadow: 0px 0px 8px 8px rgb(255, 255, 255);
     border-radius: 30px;
-    margin-left: 25%;
+    margin-left: 15%;
 }
 
 p {
     color: #BCA5AE;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
+    width: 100%;
 }
 
 h1 {
-    color: #BCA5AE;
+    color: rgb(243, 208, 221);
     font-size: 3rem;
     margin: 0;
 }
 
+h3 {
+    color: rgb(253, 216, 230);
+    font-size: 2rem;
+}
+
 hr {
+    border: 1px solid #96E8FF;
+    border-radius: 30px;
+    box-shadow: 0px 0px 8px 5px #96E8FF;
+}
+
+img {
     border: 1px solid #96E8FF;
     border-radius: 30px;
     box-shadow: 0px 0px 8px 5px #96E8FF;
